@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz | WriteConnect</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2a1f, #1e5a3c);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 40px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      margin-top: 25px;
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    p {
+      line-height: 1.6;
+      opacity: 0.85;
+      font-size: 15px;
+    }
+
+    ul {
+      margin-left: 20px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    .back {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background: white;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>1. Allgemeine Hinweise</h2>
+    <p>
+      Der Schutz deiner Daten ist uns wichtig. Diese Website befindet sich aktuell im Aufbau.
+      Es werden nur technisch notwendige Daten verarbeitet.
+    </p>
+
+    <h2>2. Zugriffsdaten</h2>
+    <p>
+      Beim Besuch dieser Website werden automatisch Informationen durch den Hosting-Anbieter (GitHub Pages) erfasst:
+    </p>
+    <ul>
+      <li>IP-Adresse (gekürzt/temporär)</li>
+      <li>Datum und Uhrzeit des Zugriffs</li>
+      <li>aufgerufene Seite</li>
+    </ul>
+
+    <h2>3. Cookies</h2>
+    <p>
+      Diese Website verwendet aktuell keine Tracking-Cookies.
+    </p>
+
+    <h2>4. Nutzerkonto (zukünftig)</h2>
+    <p>
+      Falls ein Login-System eingeführt wird, werden nur Daten gespeichert, die für die Nutzung der Plattform notwendig sind
+      (z. B. E-Mail, Nutzerrolle Autor/Leser).
+    </p>
+
+    <h2>5. Kontakt</h2>
+    <p>
+      Bei Fragen zum Datenschutz: kontakt@writeconnect.de
+    </p>
+
+    <a class="back" href="index.html">← Zurück zur Startseite</a>
+
+  </div>
+
+</body>
+</html>
