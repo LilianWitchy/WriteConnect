@@ -270,3 +270,52 @@ p {
 .hidden {
   display: none;
 }
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* dunkler Layer für Lesbarkeit */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+/* Hero Text */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* Top Bar bleibt oben sichtbar */
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 3;
+}
