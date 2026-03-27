@@ -305,3 +305,24 @@ p {
     font-size: 13px;
   }
 }
+
+.footer {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 14px 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  margin: 0 6px;
+  transition: 0.2s;
+}
+
+.footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
