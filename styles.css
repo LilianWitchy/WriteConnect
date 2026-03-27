@@ -18,7 +18,7 @@ body {
 
 .hero {
   position: relative;
-  height: 70vh;
+  height: 65vh;
   min-height: 480px;
   width: 100%;
   background-image: url("writeconnect.png");
