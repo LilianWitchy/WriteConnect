@@ -308,6 +308,12 @@ p {
   font-size: 20px;
   opacity: 0.9;
 }
+.hero {
+  background-image: url("writeconnect.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 /* Top Bar bleibt oben sichtbar */
 .top-bar {
