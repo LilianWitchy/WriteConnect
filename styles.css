@@ -8,8 +8,8 @@
 
 /* Body */
 body {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Top Bar */
@@ -310,6 +310,9 @@ p {
   opacity: 0.9;
 }
 
+.hero {
+  width: 100%;
+}
 
 
 /* Top Bar bleibt oben sichtbar */
