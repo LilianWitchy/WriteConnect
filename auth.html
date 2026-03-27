@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WriteConnect - Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+
+    <h1>WriteConnect</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button onclick="showLogin()">Login</button>
+      <button onclick="showRegister()">Registrieren</button>
+    </div>
+
+    <!-- Login -->
+    <div id="loginBox" class="box">
+      <h2>Login</h2>
+
+      <input type="email" id="loginEmail" placeholder="E-Mail">
+      <input type="password" id="loginPassword" placeholder="Passwort">
+
+      <button onclick="login()">Einloggen</button>
+    </div>
+
+    <!-- Register -->
+    <div id="registerBox" class="box hidden">
+      <h2>Registrieren</h2>
+
+      <input type="email" id="regEmail" placeholder="E-Mail">
+      <input type="password" id="regPassword" placeholder="Passwort">
+
+      <select id="role">
+        <option value="reader">Leser</option>
+        <option value="author">Autor</option>
+      </select>
+
+      <button onclick="register()">Account erstellen</button>
+    </div>
+
+  </div>
+
+<script>
+  function showLogin() {
+    document.getElementById("loginBox").classList.remove("hidden");
+    document.getElementById("registerBox").classList.add("hidden");
+  }
+
+  function showRegister() {
+    document.getElementById("registerBox").classList.remove("hidden");
+    document.getElementById("loginBox").classList.add("hidden");
+  }
+
+  function register() {
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPassword").value;
+    const role = document.getElementById("role").value;
+
+    const user = { email, password, role };
+
+    localStorage.setItem(email, JSON.stringify(user));
+
+    alert("Account erstellt!");
+    showLogin();
+  }
+
+  function login() {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const user = JSON.parse(localStorage.getItem(email));
+
+    if (!user || user.password !== password) {
+      alert("Login fehlgeschlagen");
+      return;
+    }
+
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    alert("Login erfolgreich!");
+
+    // Weiterleitung später
+    window.location.href = "dashboard.html";
+  }
+</script>
+
+</body>
+</html>
