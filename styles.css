@@ -154,3 +154,66 @@ p {
     font-size: 13px;
   }
 }
+
+/* ---------------- AUTH PAGE ---------------- */
+
+.auth-body {
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  width: 320px;
+  text-align: center;
+  color: white;
+}
+
+.auth-container h1 {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box input, .box select {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+.box button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
