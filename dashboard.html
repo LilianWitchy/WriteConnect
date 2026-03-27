@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WriteConnect - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+  <header class="dash-header">
+    <h1>WriteConnect</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- Autor Bereich -->
+    <section id="authorSection" class="hidden">
+      <h2>Autor Bereich</h2>
+
+      <div class="card">
+        <h3>Neuen Text erstellen</h3>
+
+        <input type="text" id="title" placeholder="Titel">
+        <textarea id="content" placeholder="Dein Text..."></textarea>
+
+        <select id="genre">
+          <option>Fantasy</option>
+          <option>Romance</option>
+          <option>Thriller</option>
+          <option>Sonstiges</option>
+        </select>
+
+        <button onclick="publishText()">Veröffentlichen</button>
+      </div>
+
+      <h3>Deine Texte</h3>
+      <div id="myTexts"></div>
+    </section>
+
+    <!-- Leser Bereich -->
+    <section id="readerSection" class="hidden">
+      <h2>Für dich empfohlene Texte</h2>
+      <div id="allTexts"></div>
+    </section>
+
+  </main>
+
+<script>
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  let texts = JSON.parse(localStorage.getItem("texts")) || [];
+
+  // Rolle prüfen
+  if (!user) {
+    window.location.href = "auth.html";
+  }
+
+  if (user.role === "author") {
+    document.getElementById("authorSection").classList.remove("hidden");
+  }
+
+  if (user.role === "reader") {
+    document.getElementById("readerSection").classList.remove("hidden");
+  }
+
+  // Text veröffentlichen (Autor)
+  function publishText() {
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+    const genre = document.getElementById("genre").value;
+
+    const newText = {
+      id: Date.now(),
+      title,
+      content,
+      genre,
+      author: user.email
+    };
+
+    texts.push(newText);
+    localStorage.setItem("texts", JSON.stringify(texts));
+
+    alert("Text veröffentlicht!");
+    loadMyTexts();
+  }
+
+  // Autor: eigene Texte
+  function loadMyTexts() {
+    const container = document.getElementById("myTexts");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const my = texts.filter(t => t.author === user.email);
+
+    my.forEach(t => {
+      container.innerHTML += `
+        <div class="card">
+          <h3>${t.title}</h3>
+          <p>${t.content}</p>
+          <small>${t.genre}</small>
+        </div>
+      `;
+    });
+  }
+
+  // Leser: alle Texte
+  function loadAllTexts() {
+    const container = document.getElementById("allTexts");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    texts.forEach(t => {
+      container.innerHTML += `
+        <div class="card">
+          <h3>${t.title}</h3>
+          <p>${t.content}</p>
+          <small>${t.genre}</small>
+          <p><b>Autor:</b> ${t.author}</p>
+        </div>
+      `;
+    });
+  }
+
+  function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "auth.html";
+  }
+
+  // Initial load
+  loadMyTexts();
+  loadAllTexts();
+
+</script>
+
+</body>
+</html>
